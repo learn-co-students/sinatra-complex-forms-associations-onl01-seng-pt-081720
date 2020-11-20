@@ -1,1 +1,13 @@
-show.erb
+<h1><%= @pet.name %></h1>
+<br>
+
+<h2>Belongs to: <%= @pet.owner.name %></h2>
+<br>
+
+<h2><%= @pet.name %>'s Siblings:<br>
+    <% @pet.owner.pets.each do |pet| %>
+        <% if pet.name != @pet.name %>
+            <%= pet.name %><br>
+        <% end %>
+    <% end %>
+</h2>
